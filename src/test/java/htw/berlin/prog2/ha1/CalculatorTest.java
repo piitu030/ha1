@@ -90,5 +90,19 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+    @Test
+    @DisplayName ("multiply 2 numbers")
+    void testMultiplyTwoNumbers() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("x");
+        calc.pressDigitKey(8);
+        calc.pressEqualsKey();
+        String expected = "16";
+
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+    }
 }
 
