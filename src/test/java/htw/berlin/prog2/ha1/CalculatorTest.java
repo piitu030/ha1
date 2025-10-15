@@ -104,5 +104,16 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+    @DisplayName ("square root")
+    void testSquareRootResult() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(5);
+        calc.pressUnaryOperationKey("√");
+        String expected = "5";
+
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
 }
 
