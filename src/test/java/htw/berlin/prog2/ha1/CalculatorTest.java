@@ -104,6 +104,7 @@ class CalculatorTest {
         assertEquals(expected, actual);
 
     }
+    @Test
     @DisplayName ("square root")
     void testSquareRootResult() {
         Calculator calc = new Calculator();
@@ -112,6 +113,20 @@ class CalculatorTest {
         calc.pressUnaryOperationKey("√");
         String expected = "5";
 
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+    }
+    @Test
+    @DisplayName (" another operator before equals")
+    void testOperatorBeforeEquals () {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("-");
+        calc.pressDigitKey(5);
+        calc.pressBinaryOperationKey("+");
+        calc.pressEqualsKey();
+        String expected = "20";
         String actual = calc.readScreen();
         assertEquals(expected, actual);
     }
